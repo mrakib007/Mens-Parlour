@@ -2,6 +2,7 @@ import React from 'react';
 import Main from '../Layout/Main';
 import DisplayError from '../Pages/Shared/DisplayError/DisplayError';
 import { createBrowserRouter } from 'react-router-dom';
+import Home from '../Pages/Home/Home/Home';
 
 const router = createBrowserRouter([
     {
@@ -11,7 +12,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-            }
+                element: <Home/>
+            },
         ]
     }
 ])
