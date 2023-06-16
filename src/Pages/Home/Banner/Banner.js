@@ -1,18 +1,19 @@
 import React from "react";
+import './Banner.css';
 
 const Banner = () => {
   return (
-    <section class="text-gray-600 body-font">
-      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <section class="text-gray-600 body-font max-w-[1440px] mx-auto banner-height">
+      <div class="container mx-auto my-7 flex px-5 py-24 md:flex-row flex-col items-center">
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
           <img
-            class="object-cover object-center rounded"
+            class="object-cover object-center rounded-lg lg:h-[520px] lg:w-[420px]"
             alt="hero"
-            src="https://dummyimage.com/720x600"
+            src="https://images.unsplash.com/photo-1588731247530-4076fc99173e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
           />
         </div>
-        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+        <div class="lg:flex-grow md:w-1/2 lg:pl-16 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
             Before they sold out
             <br class="hidden lg:inline-block"/>readymade gluten
           </h1>
