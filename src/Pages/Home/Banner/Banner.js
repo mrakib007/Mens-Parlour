@@ -1,10 +1,10 @@
 import React from "react";
-import './Banner.css';
+// import './Banner.css';
 
 const Banner = () => {
   return (
-    <section class="text-gray-600 body-font max-w-[1440px] mx-auto banner-height">
-      <div class="container mx-auto my-7 flex px-5 py-24 md:flex-row flex-col items-center">
+    <section class="text-gray-600 body-font max-w-[1440px] mx-auto banner-height h-full">
+      <div class="container mx-auto lg:my-20 md:my-10 my-7 flex px-5 py-24 md:flex-row flex-col items-center">
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
           <img
             class="object-cover object-center rounded-lg lg:h-[520px] lg:w-[420px]"
