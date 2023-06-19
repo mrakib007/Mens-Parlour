@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <nav className="border-gray-200" data-theme="night">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" className="flex items-center">
+        <Link to={'/'} className="flex items-center">
           <img
             src="https://flowbite.com/docs/images/logo.svg"
             className="h-8 mr-3"
@@ -14,7 +14,7 @@ const NavBar = () => {
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Men's Parlour
           </span>
-        </a>
+        </Link>
         <button
           data-collapse-toggle="navbar-default"
           type="button"
@@ -57,12 +57,12 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+              to={'/login'}
                 className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent"
               >
-                Services
-              </a>
+                Login
+              </Link>
             </li>
             <li>
               <a

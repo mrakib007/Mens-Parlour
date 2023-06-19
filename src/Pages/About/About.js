@@ -9,7 +9,7 @@ const About = () => {
                     <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-300 pb-4">About Us</h1>
                     <p className="font-normal text-base leading-6 text-gray-300 ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
                 </div>
-                <div className="w-full lg:w-8/12 ">
+                <div className="w-full lg:w-7/12 ">
                     <img className="w-full h-full rounded-xl" src="https://images.unsplash.com/photo-1678356164573-9a534fe43958?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="A group of People" />
                 </div>
             </div>
