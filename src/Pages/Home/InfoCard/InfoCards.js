@@ -27,7 +27,7 @@ const InfoCards = () => {
   ];
   return (
     <div>
-      <h1 className="lg:text-2xl md:text-2xl text-sm text-white text-center">
+      <h1 className="lg:text-2xl md:text-2xl text-xl text-white text-center">
         We have many services according to your needs. <br /> Choose the best
         treatments as it suits to your face and skin type.
       </h1>

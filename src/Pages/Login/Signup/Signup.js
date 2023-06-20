@@ -20,7 +20,7 @@ const Signup = () => {
             className="rounded-xl hidden md:block lg:block lg:w-[800px]"
           />
         </div>
-        <div className="lg:w-6/12 w-full ml-5">
+        <div className="lg:w-6/12 w-full lg:ml-5">
           <h1 className="text-4xl font-semibold text-center">Signup</h1>
           <div class="inline-flex items-center justify-center w-full">
             <hr class="w-56 h-1 my-2 bg-gray-200 border-0 rounded dark:bg-gray-700" />

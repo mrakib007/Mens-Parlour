@@ -15,7 +15,7 @@ const Advertise = () => {
         <div class="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900"></div>
       </div>
       <div className="">
-        <h2 className="lg:text-2xl text-xl text-center my-5">
+        <h2 className="lg:text-2xl text-xl text-center p-2 my-5">
           You are one step away from having a clearer and attractive skin and
           lifestyle.
         </h2>
