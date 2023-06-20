@@ -13,14 +13,14 @@ const InfoCards = () => {
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1512864084360-7c0c4d0a0845?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://img.freepik.com/free-photo/handsome-young-man-applying-makeup-beauty-products_171337-5523.jpg?w=1380&t=st=1687242333~exp=1687242933~hmac=3234113e0fbe5d6880ad8fd3471d4338e9e65ae4327d1fb50b5e997e6d166e01",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. nobis odit qui ducimus aperiam optio repudiandae iusto sit illo dolorem amet et quae.",
     },
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1512864084360-7c0c4d0a0845?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-young-man-model-dressed-red-checkered-shirt-fashion-man-posing_158538-4909.jpg?w=1060&t=st=1687242436~exp=1687243036~hmac=66115dbdf6cff905b6d4bd23970dc965a6e8eb1f3b45a79a9ba208da87bf515d",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. nobis odit qui ducimus aperiam optio repudiandae iusto sit illo dolorem amet et quae.",
     },

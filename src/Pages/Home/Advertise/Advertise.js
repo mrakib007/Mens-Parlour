@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 const Advertise = () => {
   return (
-    <div className="my-20 bg-indigo-500 flex flex-col items-center justify-center">
+    // <div className="my-20 bg-indigo-500 flex flex-col items-center justify-center">
+    <div className="my-20 bg-cyan-700 flex flex-col items-center h-[450px] justify-center">
       <div className="">
-        <h1 className="lg:text-8xl py-5 text-4xl my-5 text-center font-semibold">
-          Book Now
+        <h1 className="lg:text-8xl py-5 text-4xl my-2 text-center font-semibold">
+          Book Now!
         </h1>
       </div>
       <div class="inline-flex items-center justify-center w-full">
