@@ -78,18 +78,31 @@
 
 // export default Login;
 
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const googleProvider = new GoogleAuthProvider();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const {providerLogin} = useContext(AuthContext);
+  const [loginUserEmail,setLoginUserEmail] = useState('');
 
-  const handleGoogleSingIn = () =>{}
+  const handleGoogleSingIn = () =>{
+    providerLogin(googleProvider)
+    .then(result=>{
+      const user = result.user;
+      console.log(user);
+      setLoginUserEmail(user.email);
+    })
+    .catch(error => console.log(error));
+  }
   return (
     <div className="flex justify-center items-center h-[800px]">
       <div className="lg:flex lg:flex-row flex-col justify-between gap-5">

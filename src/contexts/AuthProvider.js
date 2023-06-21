@@ -4,9 +4,15 @@ import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
+
 const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true); 
+
+    const providerLogin = (provider) =>{
+        setLoading(true);
+        return signInWithPopup(auth,provider);
+    }
 
     const logOut = () =>{
         setLoading(true);
@@ -24,6 +30,8 @@ const AuthProvider = ({children}) => {
     const authInfo = {
         user,
         logOut,
+        loading,
+        providerLogin,
     }
     return (
         <AuthContext.Provider value={authInfo}>
