@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
   const {
@@ -8,6 +11,51 @@ const Signup = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const {createUser,providerLogin,updateUser} = useContext(AuthContext);
+  const [signUpError,setSignUpError] = useState('');
+  const [createdUserEmail,setCreatedUserEmail] = useState('');
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleSignUp = (data) =>{
+    setSignUpError('');
+    createUser(data.email,data.password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+      toast.success('User Created Successfully!');
+      const userInfo = {
+        displayName: data.name
+      }
+      updateUser(userInfo)
+      .then(()=>{
+        saveUser(data.name,data.email);
+        // toast.success('user saved successfully');
+      })
+      .catch(error =>{
+        toast.error(error.message);
+        setSignUpError(error.message);
+      })
+    })
+  }
+
+  const saveUser = (name,email) =>{
+    const user = {name,email};
+    fetch('http://localhost:5000/users',{
+      method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      setCreatedUserEmail(email);
+      console.log(data)
+      if(data.acknowledged){
+        toast.success('user saved successfully');
+      }
+    })
+  }
 
   const handleGoogleSingIn = () => {};
   return (
@@ -28,7 +76,7 @@ const Signup = () => {
           </div>
           <form
             className="my-3 lg:flex lg:flex-col lg:justify-center lg:items-center"
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(handleSignUp)}
           >
             <div className="form-control w-full">
               <label className="label">
@@ -79,9 +127,10 @@ const Signup = () => {
             </div>
             <input
               className="btn btn-accent w-full"
-              value="Login"
+              value="Signup"
               type="submit"
             />
+            {signUpError && <p className='text-red-500'>{signUpError}</p>}
           </form>
           <p>
             Already have an account?{" "}

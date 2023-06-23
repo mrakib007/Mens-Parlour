@@ -14,9 +14,18 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth,provider);
     }
 
+    const createUser = (email,password) =>{
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth,email,password);
+    }
+
     const logOut = () =>{
         setLoading(true);
         return signOut(auth);
+    }
+
+    const updateUser = (userInfo) =>{
+        return updateProfile(auth.currentUser,userInfo);
     }
 
     useEffect(()=>{
@@ -32,6 +41,8 @@ const AuthProvider = ({children}) => {
         logOut,
         loading,
         providerLogin,
+        createUser,
+        updateUser,
     }
     return (
         <AuthContext.Provider value={authInfo}>
