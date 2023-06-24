@@ -83,6 +83,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const googleProvider = new GoogleAuthProvider();
@@ -91,14 +92,52 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const {providerLogin} = useContext(AuthContext);
+  const {providerLogin,signIn} = useContext(AuthContext);
   const [loginUserEmail,setLoginUserEmail] = useState('');
+  const [loginError,setLoginError] = useState('');
+
+  const handleLogin = (data) =>{
+    // event.preventDefault();
+    setLoginError('');
+    signIn(data.email,data.password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+      setLoginUserEmail(data.email);
+    })
+    .catch((error)=>{
+      console.log(error.message);
+      setLoginError(error.message);
+    })
+  }
+
+  const saveUser = (name,email) =>{
+    const user = {name,email};
+    fetch('http://localhost:5000/users',{
+      method:"POST",
+      headers:{
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    })
+    .then((res)=>res.json())
+    .then(data => {
+      console.log(data);
+      if(data.acknowledged){
+        toast.success('User Saved Successfully!');
+      }else{
+        toast.error('User Already Exists!')
+      }
+      setLoginUserEmail(email);
+    })
+  }
 
   const handleGoogleSingIn = () =>{
     providerLogin(googleProvider)
     .then(result=>{
       const user = result.user;
       console.log(user);
+      saveUser(user.displayName,user.email);
       setLoginUserEmail(user.email);
     })
     .catch(error => console.log(error));
@@ -158,7 +197,7 @@ const Login = () => {
                 <p className="text-red-600">{errors.password?.message}</p>
               )}
             </div>
-            <input className="btn btn-accent w-full" value='Login' type="submit"/>
+            <input className="btn btn-accent w-full" onClick={handleLogin} value='Login' type="submit"/>
           </form>
           <p>New to Men's Parlour? <Link to={'/signup'} className="text-secondary">Create New Account</Link></p>
           <div className="divider">OR</div>
