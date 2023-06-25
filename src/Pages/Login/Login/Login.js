@@ -91,6 +91,7 @@ const Login = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
   const {providerLogin,signIn} = useContext(AuthContext);
   const [loginUserEmail,setLoginUserEmail] = useState('');
@@ -104,6 +105,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       setLoginUserEmail(data.email);
+      reset();
     })
     .catch((error)=>{
       console.log(error.message);

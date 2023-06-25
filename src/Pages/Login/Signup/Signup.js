@@ -10,10 +10,12 @@ const Signup = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
   const {createUser,providerLogin,updateUser} = useContext(AuthContext);
   const [signUpError,setSignUpError] = useState('');
   const [createdUserEmail,setCreatedUserEmail] = useState('');
+  const [loginUserEmail,setLoginUserEmail] = useState('');
   const googleProvider = new GoogleAuthProvider();
 
   const handleSignUp = (data) =>{
@@ -30,6 +32,7 @@ const Signup = () => {
       .then(()=>{
         saveUser(data.name,data.email);
         // toast.success('user saved successfully');
+        reset()
       })
       .catch(error =>{
         toast.error(error.message);
@@ -53,11 +56,22 @@ const Signup = () => {
       console.log(data)
       if(data.acknowledged){
         toast.success('user saved successfully');
+      }else{
+        toast.error('User already exists or some error happened.')
       }
     })
   }
 
-  const handleGoogleSingIn = () => {};
+  const handleGoogleSingIn = () => {
+    providerLogin(googleProvider)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      saveUser(user.displayName,user.email);
+      setLoginUserEmail(user.email);
+    })
+    .catch(error => toast.success(error.message))
+  };
   return (
     <div className="flex justify-center items-center h-[800px]">
       <div className="lg:flex lg:flex-row flex-col justify-between gap-5">
