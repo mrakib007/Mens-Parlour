@@ -6,6 +6,7 @@ import Home from '../Pages/Home/Home/Home';
 import About from '../Pages/About/About';
 import Login from '../Pages/Login/Login/Login';
 import Signup from '../Pages/Login/Signup/Signup';
+import DashboardLayout from '../Layout/DashboardLayout';
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,17 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Signup/>
+            }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: 
+        <DashboardLayout/>,
+        errorElement: <DisplayError/>,
+        children: [
+            {
+                path: '/dashboard',
             }
         ]
     }
