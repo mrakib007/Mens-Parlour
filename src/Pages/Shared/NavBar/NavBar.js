@@ -123,6 +123,7 @@ const NavBar = () => {
          }
          <li><Link className='block py-2 pl-3 pr-4 text-lg text-white  rounded md:bg-transparent' to="/contact">Contact</Link></li>
     </React.Fragment>
+    
     return (
         <div className="navbar bg-base-100 flex justify-between">
   <div className="navbar-start">

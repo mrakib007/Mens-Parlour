@@ -7,6 +7,7 @@ import About from '../Pages/About/About';
 import Login from '../Pages/Login/Login/Login';
 import Signup from '../Pages/Login/Signup/Signup';
 import DashboardLayout from '../Layout/DashboardLayout';
+import MyAppointment from '../Pages/Dashboard/MyAppointment/MyAppointment';
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-            }
+                element: <MyAppointment/>
+            },
         ]
     }
 ])
